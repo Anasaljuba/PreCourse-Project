@@ -20,8 +20,9 @@
  */
 function sumOdds(numbers) {
   // Your code here
+  return numbers.filter(number => number%2===1).reduce((x,y) => x+y )
 }
-// console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
+console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
 
 /**
  * characterCount(string, c):
@@ -38,8 +39,19 @@ function sumOdds(numbers) {
  */
 function characterCount(string, c) {
   // Your code here
+  let sum = 0
+  
+  for (var i = 0; i < string.length; i++) {
+    if (string.charAt(i).toLowerCase()===c.toLowerCase()){
+      sum = sum +1
+      
+    }
+    
+  }
+  return sum
+  
 }
-// console.log(characterCount("Character Count is clever", "c"));
+console.log(characterCount("Character Count is clever", "c"));
 
 /**
  * largestIncrement(numbers):
@@ -59,8 +71,17 @@ function characterCount(string, c) {
  */
 function largestIncrement(numbers) {
   // Your code here
+  let maxValue = 0
+  
+  for (var i = 0; i < (numbers.length-1); i++) {
+    if ((numbers[i+1]-numbers[i])>maxValue){
+      maxValue = numbers[i+1]-numbers[i]
+      
+    }} 
+return maxValue
 }
-// console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
+
+console.log(largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 
 /**
  * afterX(numbers, x):
@@ -74,9 +95,10 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  // Your code here]
+    return numbers.slice(numbers.indexOf(x)+1)
 }
-// console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
+console.log(afterX([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
 
 /**
  * abbreviate(firstName, lastName):
@@ -91,8 +113,11 @@ function afterX(numbers, x) {
  */
 function abbreviate(firstName, lastName) {
   // Your code here
+   let name = firstName.charAt(0)+lastName.charAt(0);
+    name = name.toUpperCase()
+   return name
 }
-// console.log(abbreviate("miss", "Stephane"));
+console.log(abbreviate("miss", "Stephane"));
 
 /**
  * isUpperCase(string):
@@ -106,9 +131,19 @@ function abbreviate(firstName, lastName) {
  */
 function isUpperCase(string) {
   // Your code here
+  let sum = 0
+  
+  for (var i = 0; i < string.length; i++) {
+    if (string.charAt(i)===string.charAt(i).toUpperCase()){
+      sum = sum +1
+      
+    }
+    
+  }
+  return sum===string.length
 }
 
-// console.log(isUpperCase("JCREW"));
+console.log(isUpperCase("JCREW"));
 
 /**
  * elementInArray(numbers, x):
@@ -122,6 +157,7 @@ function isUpperCase(string) {
  */
 function elementInArray(numbers, x) {
   // Your code here
+  return numbers.some(check => check===x)
 }
 // console.log(elementInArray([5, 6, 7], 8));
 
